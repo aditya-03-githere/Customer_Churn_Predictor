@@ -361,7 +361,7 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
         </button>
         <div class="settings-pop" id="settingsPop">
           <label for="apiBaseInput">API endpoint</label>
-          <input type="text" id="apiBaseInput" spellcheck="false" placeholder="http://localhost:8000">
+          <input type="text" id="apiBaseInput" spellcheck="false" placeholder="https://your-api.onrender.com">
           <button class="save-btn" id="apiBaseSave">Save endpoint</button>
           <p class="settings-hint">Requests are sent to <span style="font-family:var(--font-mono)">{endpoint}/predict</span>. This should match where your FastAPI backend (main.py) is running.</p>
         </div>
@@ -669,8 +669,9 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
 
 <script>
 (function(){
-  var API_KEY = 'https://customer-churn-predictor-n097.onrender.com/predict';
-  var apiBase = localStorage.getItem(API_KEY) || 'http://localhost:8000';
+  var API_KEY = 'churnApiBase';
+  var DEFAULT_API_BASE = 'https://customer-churn-predictor-n097.onrender.com';
+  var apiBase = localStorage.getItem(API_KEY) || DEFAULT_API_BASE;
   document.getElementById('apiBaseInput').value = apiBase;
 
   var themeToggle = document.getElementById('themeToggle');
@@ -693,7 +694,7 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
     if(!settingsPop.contains(e.target) && e.target !== settingsToggle){ settingsPop.classList.remove('open'); }
   });
   document.getElementById('apiBaseSave').addEventListener('click', function(){
-    var val = document.getElementById('apiBaseInput').value.trim().replace(/\/$/, '');
+    var val = document.getElementById('apiBaseInput').value.trim().replace(/\/(predict)?\/?$/, '');
     if(val){ apiBase = val; localStorage.setItem(API_KEY, val); }
     settingsPop.classList.remove('open');
   });
