@@ -705,17 +705,24 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
     });
   });
 
-  var YES_NO_TOGGLES = ['SeniorCitizen','Partner','Dependents','PhoneService','MultipleLines','InternetServiceAddon','PaperlessBilling','OnlineSecurity','OnlineBackup','DeviceProtection','TechSupport','StreamingTV','StreamingMovies'];
-
-  var state = {
-    gender:null, SeniorCitizen:null, Partner:null, Dependents:null,
-    tenure:null, PhoneService:null, MultipleLines:null,
-    InternetService:null, OnlineSecurity:null, OnlineBackup:null, DeviceProtection:null,
-    TechSupport:null, StreamingTV:null, StreamingMovies:null,
-    Contract:null, PaperlessBilling:null, PaymentMethod:null,
-    MonthlyCharges:null, TotalCharges:null
+  // Toggle switches render visually "off" by default, so their state must
+  // start at "No" (not null) to match what's on screen — otherwise a field
+  // left untouched at "No" never fires a change event and stays unrecorded.
+  var TOGGLE_DEFAULTS = {
+    SeniorCitizen:'NO', Partner:'No', Dependents:'No', PhoneService:'No',
+    PaperlessBilling:'No', MultipleLines:'No', OnlineSecurity:'No', OnlineBackup:'No',
+    DeviceProtection:'No', TechSupport:'No', StreamingTV:'No', StreamingMovies:'No'
   };
+  var SELECTION_FIELDS = ['gender','tenure','InternetService','Contract','PaymentMethod','MonthlyCharges','TotalCharges'];
 
+  function freshState(){
+    var s = {};
+    SELECTION_FIELDS.forEach(function(k){ s[k] = null; });
+    Object.keys(TOGGLE_DEFAULTS).forEach(function(k){ s[k] = TOGGLE_DEFAULTS[k]; });
+    return s;
+  }
+
+  var state = freshState();
   var REQUIRED_FIELDS = Object.keys(state);
 
   document.querySelectorAll('.segmented button').forEach(function(btn){
@@ -1019,7 +1026,8 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
   }
 
   function resetAll(){
-    Object.keys(state).forEach(function(k){ state[k] = null; });
+    var fresh = freshState();
+    Object.keys(state).forEach(function(k){ state[k] = fresh[k]; });
     form.reset();
     document.querySelectorAll('.segmented button, .pillcard').forEach(function(el){ el.classList.remove('active','selected'); });
     document.querySelectorAll('[data-toggle]').forEach(function(input){ input.checked = false; });
