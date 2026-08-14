@@ -14,14 +14,14 @@ app.add_middleware(
     allow_headers=['*'],
 )
 
-model = joblib.load('Telco_customer_churn_new.pkl')
+model = joblib.load('Customer_churn.pkl')
 
 class Churn_details(BaseModel):
     gender : Literal['Male','Female']
-    SeniorCitizen : Literal['Yes','NO']
+    SeniorCitizen : Literal['Yes','No']
     Partner : Literal['Yes','No']
     Dependents : Literal['Yes','No']
-    tenure : int = Field(...,ge=1,le=50)
+    tenure : int = Field(...,ge=1,le=80)
     PhoneService : Literal['Yes','No']
     MultipleLines : Literal['Yes','No']
     InternetService : Literal['DSL', 'Fiber optic', 'No']
@@ -34,8 +34,8 @@ class Churn_details(BaseModel):
     Contract : Literal['Month-to-month', 'One year', 'Two year']
     PaperlessBilling : Literal['Yes','No']
     PaymentMethod : Literal['Electronic check', 'Mailed check', 'Bank transfer', 'Credit card']
-    MonthlyCharges : float = Field(...,ge=0,le=100)
-    TotalCharges : float = Field(...,ge=0,le=10000)
+    MonthlyCharges : float = Field(...,ge=1,le=200)
+    TotalCharges : float = Field(...,ge=1,le=10000)
 
 class predictionResponse(BaseModel):
     churn : str

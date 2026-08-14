@@ -355,17 +355,7 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       </button>
-      <div class="settings-wrap">
-        <button class="icon-btn" id="settingsToggle" aria-label="API settings">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-        </button>
-        <div class="settings-pop" id="settingsPop">
-          <label for="apiBaseInput">API endpoint</label>
-          <input type="text" id="apiBaseInput" spellcheck="false" placeholder="https://your-api.onrender.com">
-          <button class="save-btn" id="apiBaseSave">Save endpoint</button>
-          <p class="settings-hint">Requests are sent to <span style="font-family:var(--font-mono)">{endpoint}/predict</span>. This should match where your FastAPI backend (main.py) is running.</p>
-        </div>
-      </div>
+
     </div>
   </div>
 </header>
@@ -473,9 +463,9 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
                 <label>Tenure (months)
                   <span class="info-dot">i<span class="tip">How long has the customer been with the company, in months?</span></span>
                 </label>
-                <input type="number" class="num-input" id="tenure" placeholder="e.g. 24" min="1" max="50" step="1">
-                <span class="help">Accepted range: 1–50 months.</span>
-                <span class="error-msg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Enter a tenure between 1 and 50 months.</span>
+                <input type="number" class="num-input" id="tenure" placeholder="e.g. 24" min="1" max="80" step="1">
+                <span class="help">Accepted range: 1–80 months.</span>
+                <span class="error-msg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Enter a tenure between 1 and 80 months.</span>
               </div>
 
               <div class="field full" data-field="Contract">
@@ -512,10 +502,10 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
                 <label>Monthly charges</label>
                 <div class="currency-wrap">
                   <span class="curr-sign">$</span>
-                  <input type="number" class="num-input" id="MonthlyCharges" placeholder="e.g. 79.50" min="0" max="100" step="0.01">
+                  <input type="number" class="num-input" id="MonthlyCharges" placeholder="e.g. 79.50" min="1" max="200" step="0.01">
                 </div>
-                <span class="help">Accepted range: $0–$100.</span>
-                <span class="error-msg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Please enter a valid monthly charge.</span>
+                <span class="help">Accepted range: $1–$200.</span>
+                <span class="error-msg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Enter monthly charges between $1 and $200.</span>
               </div>
 
               <div class="field" data-field="TotalCharges">
@@ -524,7 +514,7 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
                   <span class="curr-sign">$</span>
                   <input type="number" class="num-input" id="TotalCharges" placeholder="e.g. 1908.00" min="0" max="10000" step="0.01">
                 </div>
-                <span class="help">Accepted range: $0–$10,000.</span>
+                <span class="help">Accepted range: $1–$10,000.</span>
                 <span class="error-msg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Please enter a valid total charge.</span>
               </div>
             </div>
@@ -669,10 +659,8 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
 
 <script>
 (function(){
-  var API_KEY = 'churnApiBase';
-  var DEFAULT_API_BASE = 'https://customer-churn-predictor-n097.onrender.com';
-  var apiBase = localStorage.getItem(API_KEY) || DEFAULT_API_BASE;
-  document.getElementById('apiBaseInput').value = apiBase;
+  // Production FastAPI endpoint
+  var apiBase = 'https://customer-churn-predictor-n097.onrender.com';
 
   var themeToggle = document.getElementById('themeToggle');
   var savedTheme = localStorage.getItem('churnTheme');
@@ -682,21 +670,6 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
     var next = cur === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('churnTheme', next);
-  });
-
-  var settingsToggle = document.getElementById('settingsToggle');
-  var settingsPop = document.getElementById('settingsPop');
-  settingsToggle.addEventListener('click', function(e){
-    e.stopPropagation();
-    settingsPop.classList.toggle('open');
-  });
-  document.addEventListener('click', function(e){
-    if(!settingsPop.contains(e.target) && e.target !== settingsToggle){ settingsPop.classList.remove('open'); }
-  });
-  document.getElementById('apiBaseSave').addEventListener('click', function(){
-    var val = document.getElementById('apiBaseInput').value.trim().replace(/\/(predict)?\/?$/, '');
-    if(val){ apiBase = val; localStorage.setItem(API_KEY, val); }
-    settingsPop.classList.remove('open');
   });
 
   document.querySelectorAll('.accordion-trigger').forEach(function(trigger){
@@ -709,7 +682,7 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
   // start at "No" (not null) to match what's on screen — otherwise a field
   // left untouched at "No" never fires a change event and stays unrecorded.
   var TOGGLE_DEFAULTS = {
-    SeniorCitizen:'NO', Partner:'No', Dependents:'No', PhoneService:'No',
+    SeniorCitizen:'No', Partner:'No', Dependents:'No', PhoneService:'No',
     PaperlessBilling:'No', MultipleLines:'No', OnlineSecurity:'No', OnlineBackup:'No',
     DeviceProtection:'No', TechSupport:'No', StreamingTV:'No', StreamingMovies:'No'
   };
@@ -740,7 +713,7 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
     input.addEventListener('change', function(){
       var key = input.dataset.toggle;
       state[key] = input.checked ? 'Yes' : 'No';
-      if(key === 'SeniorCitizen'){ state.SeniorCitizen = input.checked ? 'Yes' : 'NO'; }
+      if(key === 'SeniorCitizen'){ state.SeniorCitizen = input.checked ? 'Yes' : 'No'; }
       if(key === 'PhoneService'){ handlePhoneServiceChange(input.checked); }
       updateProgress();
     });
@@ -853,10 +826,10 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
 
   var VALIDATORS = {
     gender: function(v){ return v === 'Male' || v === 'Female'; },
-    SeniorCitizen: function(v){ return v === 'Yes' || v === 'NO'; },
+    SeniorCitizen: function(v){ return v === 'Yes' || v === 'No'; },
     Partner: function(v){ return v === 'Yes' || v === 'No'; },
     Dependents: function(v){ return v === 'Yes' || v === 'No'; },
-    tenure: function(v){ return typeof v === 'number' && v >= 1 && v <= 50; },
+    tenure: function(v){ return typeof v === 'number' && v >= 1 && v <= 80; },
     PhoneService: function(v){ return v === 'Yes' || v === 'No'; },
     MultipleLines: function(v){ return v === 'Yes' || v === 'No'; },
     InternetService: function(v){ return v === 'DSL' || v === 'Fiber optic' || v === 'No'; },
@@ -869,8 +842,8 @@ footer.site{padding:36px 0 60px; text-align:center; color:var(--ink-faint); font
     Contract: function(v){ return ['Month-to-month','One year','Two year'].indexOf(v) > -1; },
     PaperlessBilling: function(v){ return v === 'Yes' || v === 'No'; },
     PaymentMethod: function(v){ return ['Electronic check','Mailed check','Bank transfer','Credit card'].indexOf(v) > -1; },
-    MonthlyCharges: function(v){ return typeof v === 'number' && v >= 0 && v <= 100; },
-    TotalCharges: function(v){ return typeof v === 'number' && v >= 0 && v <= 10000; }
+    MonthlyCharges: function(v){ return typeof v === 'number' && v >= 1 && v <= 200; },
+    TotalCharges: function(v){ return typeof v === 'number' && v >= 1 && v <= 10000; }
   };
 
   function validateAll(){
